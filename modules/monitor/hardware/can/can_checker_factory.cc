@@ -22,7 +22,7 @@
 
 #if USE_ESD_CAN
 #include "modules/monitor/hardware/can/esdcan/esdcan_checker.h"
-#endif
+#endif // USE_ESD_CAN
 #include "modules/monitor/hardware/can/socketcan/socketcan_checker.h"
 
 namespace apollo {
@@ -36,7 +36,7 @@ void CanCheckerFactory::RegisterCanCheckers() {
 #if USE_ESD_CAN
   Register(CANCardParameter::ESD_CAN,
            []() -> HwCheckerInterface* { return new hw::EsdCanChecker(); });
-#endif
+#endif // USE_ESD_CAN
   Register(CANCardParameter::SOCKET_CAN_RAW,
            []() -> HwCheckerInterface* { return new hw::SocketCanChecker(); });
 }
