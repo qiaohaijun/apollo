@@ -47,9 +47,13 @@ def load_protobuf(filename):
     """
     read a file in protobuf binary
     """
+    print("Begin loading protobuf")
     offline_features = offline_features_pb2.Features()
+    print("Finish loading protobuf")
     with open(filename, 'rb') as file_in:
+        print("Opened file {}".format(filename))
         offline_features.ParseFromString(file_in.read())
+        print("Parsed offline features")
     return offline_features.feature
 
 

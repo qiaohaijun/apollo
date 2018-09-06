@@ -28,7 +28,7 @@ parameters = {
     },
     'feature': {
         'threshold_label_time_delta': 1.0,
-        'prediction_label_timeframe': 3.0
+        'prediction_label_timeframe': 1.5
     }
 }
 

@@ -34,13 +34,17 @@ def label_file(input_file, output_file):
     label each feature file
     """
     # read input file and save them in dict
+    print("Begin loading proto")
     features = load_protobuf(input_file)
+    print("Finish loading proto")
 
     # for each obstacle ID, sort dict by their timestamp
+    print("Begin building trajectory")
     fea_trajs = build_trajectory(features)
+    print("Finish building trajectory")
 
     # for each obstacle ID, label them, remove record cannot be labeled
-    for fea_key, fea_traj in fea_trajs.items():
+    for fea_key, _ in fea_trajs.items():
         fea_traj = fea_trajs[fea_key]
         fea_traj = TrajectoryToSample.clean(fea_traj)
         fea_traj = TrajectoryToSample.label(fea_traj)
